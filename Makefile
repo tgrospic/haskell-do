@@ -2,6 +2,31 @@ build-all-windows: build-front build-back-windows
 build-all-osx: build-front build-back-osx
 build-all-linux: build-front build-back-linux
 
+build-all: 
+	ifeq ($(OS),Windows_NT)
+		build-all-windows
+	endif
+	UNAME_S := $(shell uname -s)
+	ifeq ($(UNAME_S),Linux)
+		build-all-linux
+	endif
+	ifeq ($(UNAME_S),Darwin)
+		build-all-windows
+	endif
+
+build-back:
+	ifeq ($(OS),Windows_NT)
+		build-back-windows
+	else
+		UNAME_S := $(shell uname -s)
+		ifeq ($(UNAME_S),Linux)
+			build-back-linux
+		endif
+		ifeq ($(UNAME_S),Darwin)
+			build-back-osx
+		endif
+	endif
+
 build-front:
 	cd gui &&\
 		npm run build &&\
