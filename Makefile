@@ -2,7 +2,7 @@ build-all-windows: build-front build-back-windows
 build-all-osx: build-front build-back-osx
 build-all-linux: build-front build-back-linux
 
-build-front:
+build-front: deps
 	cd gui &&\
 		npm run build &&\
 		cd ..
@@ -28,7 +28,6 @@ build-back-windows:
 deps:
 	cd gui &&\
 		npm install &&\
-		bower install &&\
 		cd ..
 
 run:

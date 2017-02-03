@@ -17,8 +17,10 @@ a pure Haskell implementation.
 
 The only *3rd-party* requirement to run HaskellDO is [Stack](http://haskellstack.org/) and [NodeJS](https://nodejs.org/).
 
-Before proceeding, run a `npm install -g purescript pulp bower` to install the required NodeJS binaries and `make deps` for installing
-the required dependencies.
+~~Before proceeding, run a `npm install -g purescript pulp bower` to install the required NodeJS binaries and `make deps` for installing
+the required dependencies.~~
+`purescript`, `pulp` and `bower` will be installed in project `node_modules`.
+
 
 **Clone** this repository, and from the root of the project run `make build-all-<platform>`
 
@@ -134,12 +136,6 @@ For compiling the **backend**, execute in the root directory:
 
 For compiling the **frontend**, execute in the root directory:
 
-- `npm install -g bower pulp purescript` - This will install:
-    - **Bower** - A dependency tool used for purescript libraries
-    - **Pulp** - A build tool for purescript
-    - **Purescript** itself
-
-- `make deps` - Installs necessary dependencies for the desktop app
 - `make build-front` - Build the GUI
 
 ## Running in dev-mode
